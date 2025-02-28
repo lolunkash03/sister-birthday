@@ -1,0 +1,131 @@
+body {
+    background-color: beige;
+    background-image: url(cat_background.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+    
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.5); /* Adjust opacity as needed */
+        z-index: -1;
+    }
+    .container {
+        margin-top: 50px;
+    }
+    h1 {
+        border: #829be1 5px solid;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        font-size: 40px;
+        font-style: italic;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: #996e48;
+        text-align: center;
+        -webkit-text-stroke: .9px #ffffff; 
+        display: flex;
+        justify-content: center;   
+        flex-wrap:wrap;
+    }
+    .birthday-message {
+        font-size: 20px;
+        color: #d147a3;
+    }
+    .cake-img {
+        width: 200px;
+        display: block;
+        margin: auto;
+        border: #ffffff 5px solid;
+    }
+        .hidden-message {
+            display: none;
+            font-size: 18px;
+            color: #ff1493;
+            margin-top: 20px;
+        }
+        .reveal-buttons-container {
+            display: flex;
+            justify-content: center;    /* This centers the buttons horizontally */
+            gap: 50px;                   /* This adds space between the buttons */
+            flex-wrap: wrap;             /* Allows buttons to wrap if the screen gets too narrow */
+            margin-top: 20px;            /* Adds spacing above the buttons */
+        }
+        
+        .reveal-btn {
+            background-color: #ffffff;
+            color: #829be1;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            white-space: nowrap;         /* Prevents button text from wrapping */
+        }
+        
+        .custom-alert, .wishes-alert, .picture-alert, .gallery-media-container{
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1000;
+            width: 300px;
+        }
+        .custom-alert img, .wishes-alert img, .picture-alert img, .gallery-media-container img, .gallery-media-container video {
+            width: 200px;  
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;  /* Centers the image and adds spacing below it */
+            border-radius: 10px;  /* Optional: round corners to match the box */
+        }
+        .custom-alert button, .wishes-alert button, .picture-alert button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    .prompt {
+        font-size: 20px;
+        color: #2a2127;
+        background-color: blanchedalmond;
+    }
+    .suprise-img {
+        width: 200px;
+        margin: auto;
+        border: #ffffff .1px solid;
+    }
+    .poem {
+        background-color: antiquewhite;
+        border: antiquewhite;
+        border-radius: 10px;
+        padding: 15px;
+        width: 40%;
+        box-sizing: border-box;
+    }
+    .gif {
+        width: 300px;
+        margin: auto;
+        border: #ffffff .1px solid;
+    }
+    .poem-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+ 

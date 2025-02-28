@@ -1,0 +1,168 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script>
+      let wishClickCount = 0;
+      let currentImageIndex = 0;
+
+      // first button
+
+      function showMessage() {
+        document.getElementById("customAlert").style.display = "block";
+      }
+      function closeMessage() {
+        document.getElementById("customAlert").style.display = "none";
+      }
+
+      // second button
+      function showThirdMessage() {
+        document.getElementById("thirdParagraph").style.display = "block";
+      }
+      function closeThirdMessage() {
+        document.getElementById("thirdParagraph").style.display = "none";
+      }
+
+      //third button
+      function showWishesGame() {
+        wishClickCount = 0;
+        document.getElementById("wishesAlert").style.display = "block";
+        updateWishesMessage();
+      }
+      function handleWishClick() {
+        wishClickCount++;
+        if (wishClickCount >= 10) {
+          closeWishesGame();
+        } else {
+          updateWishesMessage();
+        }
+      }
+      function updateWishesMessage() {
+        document.getElementById(
+          "wishesMessage"
+        ).innerText = `点我打气！！ 再来${10 - wishClickCount} 次`;
+      }
+      function closeWishesGame() {
+        document.getElementById("wishesAlert").style.display = "none";
+        alert("恭喜完成任务 姐姐奖励你个大KISSS 🎉🎂");
+      }
+      // fourth button
+
+      function showPictures() {
+        currentImageIndex = 0;
+        updatePictures();
+        document.getElementById("pictureAlert").style.display = "block";
+      }
+
+      function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+        updatePictures();
+      }
+
+      function prevImage() {
+        currentImageIndex =
+          (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
+        updatePictures();
+      }
+      function updatePictures() {
+        const galleryItem = galleryItems[currentImageIndex];
+        const galleryContainer = document.getElementById(
+          "galleryMediaContainer"
+        );
+
+        if (galleryItem.type === "image") {
+          galleryContainer.innerHTML = `<img src="${galleryItem.src}" alt="Gallery Image" style="width: 100%;">`;
+        } else if (galleryItem.type === "video") {
+          galleryContainer.innerHTML = `
+            <video controls style="width: 100%;">
+                <source src="${galleryItem.src}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        `;
+        }
+      }
+
+      function closePictures() {
+        document.getElementById("pictureAlert").style.display = "none";
+      }
+      const galleryItems = [
+        { type: "image", src: "gallery/pic1.png" },
+        { type: "image", src: "gallery/pic2.jpeg" },
+        { type: "video", src: "gallery/vid1.mp4" },
+        { type: "image", src: "gallery/pic3.png" },
+        { type: "image", src: "gallery/pic4.png" },
+        { type: "image", src: "gallery/pic5.png" },
+      ];
+    </script>
+    <h1>Happy Birthday TO 妹妹!</h1>
+    <img class="cake-img" src="birthday_cake.gif" alt="Birthday Cake" />
+
+    <div>
+      <p class="prompt">请选择以下选项！</p>
+    </div>
+    <div class="reveal-buttons-container">
+      <button class="reveal-btn" onclick="showMessage()">BIG HUG</button>
+      <button class="reveal-btn" onclick="showWishesGame()">来打气</button>
+      <button class="reveal-btn" onclick="showThirdMessage()">
+        一些想说的话...
+      </button>
+      <button class="reveal-btn" onclick="showPictures()">memories!</button>
+
+      <div id="customAlert" class="custom-alert">
+        <img src="hug.gif" alt="Surprise Image" class="surprise-img" />
+        <p>想你啦 💖🎈高考加油哦亲爱的 can't wait to 与你相伴分分秒秒</p>
+        <button onclick="closeMessage()">我知道啦</button>
+      </div>
+
+      <div id="wishesAlert" class="wishes-alert">
+        <p id="wishesMessage">点我打气！！</p>
+        <img src="charging.gif" alt="Surprise Image" class="surprise-img" />
+        <button onclick="handleWishClick()">加油！</button>
+      </div>
+
+      <div id="thirdParagraph" class="custom-alert">
+        <p>
+          首先吧，身体健康是最重要的哦。听说妈妈有给你每天做三明治，我吃太多吃厌了最近开始
+          学做饭啦，回去做给你吃💕💕
+          然后就是希望我最最最最爱的妹妹每天快乐，我会永远陪在你的身边的，有什么事可以跟我说
+          我有在努力增加联系频繁度(with my broken Chinese haha)
+          能听到任何关于你的消息足以我
+          感到快乐。很遗憾不能陪你度过你成年生日，just know you are so so LOVED.
+          亲爱的妹妹呀，我人在海外，这个姐姐只能通过一个一个电子byte所形成的图像向你问侯，
+          我只希望你不介意距离产生的陌生感，我的爱与关心永远都在，没有不想念你的每一刻。
+          It makes me happy. Just the thought of you, and anything related to
+          you. 希望我亲爱的媛宝过一个快乐的生日，happy birthday love:)
+        </p>
+        <button onclick="closeThirdMessage()">我知道啦</button>
+      </div>
+
+      <div id="pictureAlert" class="picture-alert gallery-media-container">
+        <div id="galleryMediaContainer"></div>
+        <button id="prevButton" onclick="prevImage()">Previous</button>
+        <button id="nextButton" onclick="nextImage()">Next</button>
+        <button onclick="closePictures()">Close</button>
+      </div>
+    </div>
+    <div>
+      <h1>祝你生日快乐 I LOVE YOU SO SO MUCH!!!</h1>
+    </div>
+   <div class="poem-container">
+    <img src="I Love You Hearts GIF by Mia Page.gif" class="gif"/>
+    <p class="poem">
+        <br><b>七绝•姐妹情深</b></br>
+        <br>姐妹情深自有缘，相依相伴赋诗篇。</br>
+        <br>轻香四溢谁堪赏，梦在心中尽秀娟。</br>
+        <br>接和</br>
+        <br>三朵金花不普通，情牵趣版最投缘。</br>
+        <br>诗香四溢飘千里，梦在心中赋雅篇。</br>
+
+   </div>
+
+           
+    </table>
+  </body>
+</html>
